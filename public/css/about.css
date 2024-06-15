@@ -1,0 +1,219 @@
+.diagonal-bg {
+    background: linear-gradient(to bottom right, #ffffff 50%, #6876f556 50%);
+    backdrop-filter: blur(10px); /* اضافه کردن اثر بلور */
+}
+
+.diagonal-bg-2 {
+    background: linear-gradient(to top left, #ffffff 50%, #6875f5 50%);
+    backdrop-filter: blur(400px); /* اضافه کردن اثر بلور */
+}
+
+
+
+  .container {
+  position: relative;
+  width: 40%; /* Updated width */
+  height: 80%; /* Updated height */
+  background-color: rgba(255, 255, 255, 0.13);
+  text-align: center;
+
+  backdrop-filter: blur(15px);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  transform: scale(1);
+ 
+}
+
+
+
+.container:before, .container:after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  bottom: 5%;
+  left: 5%;
+  background: linear-gradient(45deg, #01064b, #070f7a, #118aec, #08bfcc, #003cff);
+  opacity: 1;
+  border-radius: 50%;
+  animation: movingShapes 5s infinite;
+  z-index:4;
+}
+
+.container:after {
+  top: auto;
+  bottom: 5%;
+  right: 5%;
+  left: auto;
+  animation-delay: 2.5s;
+  z-index: 4;
+}
+
+.background {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 10%;
+  top: 50%;
+  opacity: 0.7;
+  
+}
+
+.background .shape {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  border-radius: 20%;
+  transition: all 0.3s;
+  
+}
+
+
+
+
+
+
+
+.btn {
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(45deg, #00bcf5, #0a18dd);
+  font-size: 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn:after {
+  content: "";
+  background: rgba(255, 255, 255, 0.5);
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #0995e6, #0400f5);
+  box-shadow: 0px 0px 5px #07cee9, 0px 0px 15px #5173e0, 0px 0px 20px #0004f5, 0px 0px 30px #007ff5;
+}
+
+.btn:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+::-webkit-scrollbar {
+width: 10px; /* عرض اسکرول‌بار */
+}
+
+/* مسیر یا track اسکرول‌بار */
+::-webkit-scrollbar-track {
+background: #f1f1f1; /* رنگ پس‌زمینه‌ی مسیر */
+border-radius: 10px; /* گوشه‌های گرد */
+}
+
+/* دسته یا thumb اسکرول‌بار */
+::-webkit-scrollbar-thumb {
+background: #4e57d4; /* رنگ دسته */
+border-radius: 10px; /* گوشه‌های گرد */
+}
+/* وقتی ماوس روی دسته اسکرول‌بار قرار می‌گیرد */
+::-webkit-scrollbar-thumb:hover {
+background: #2f3ce9; /* رنگ دسته در حالت hover */
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(45deg, #ffffff, #e7e7e9, #cdcece, #c4c2c2, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.gradient-background {
+  background: linear-gradient(45deg, #ffffff, #e7e7e9, #cdcece, #c4c2c2, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+
+@keyframes gradientShift {
+0% {
+background-position: 0% 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
+}
+
+.drop-shadow {
+  box-shadow:  0 0 38px 6px rgba(255, 254, 254, 0.226), /* پخش نور مرکزی */
+28px 0 34px 6px rgba(255, 255, 255, 0.15), /* سایه سمت راست */
+0 34px 38px 6px rgba(255, 253, 253, 0.15), /* سایه پایین */
+-28px 0 34px 6px rgba(255, 255, 255, 0.15), /* سایه سمت چپ */
+0 -34px 38px 6px rgba(255, 255, 255, 0.15); /* سایه بالا */
+}
+/* Orange color shades */
+.orange {
+background: linear-gradient(45deg, #ff7e5f, #feb47b);
+box-shadow: 0px 0px 5px #ff9a85, 0px 0px 15px #ffab76, 0px 0px 20px #ff7e5f, 0px 0px 30px #feb47b;
+;
+}
+.red-gradient {
+background: linear-gradient(45deg, #ff6b6b, #ff4747);
+box-shadow: 0px 0px 5px #ff6b6b, 0px 0px 15px #ff4747, 0px 0px 20px #ff6b6b, 0px 0px 30px #ff4747;
+}
+.green-gradient {
+
+background: linear-gradient(45deg, #1dd1a1, #10ac84);
+box-shadow: 0px 0px 5px #1dd1a1, 0px 0px 15px #10ac84, 0px 0px 20px #1dd1a1, 0px 0px 30px #10ac84;
+}
+
+
+
+
+.stack {
+/* Initial state - positioned off-screen */
+transform: translateY(20px);
+opacity: 0;
+
+}
+
+.hero {
+/* تعریف شکل هلالی برای عنصر در بالا */
+clip-path: ellipse(70% 100% at 50% 0%);
+/* تنظیمات برای تصویر پس‌زمینه */
+background-image: url(/img/vakilhosh.png);
+height: 300px;
+background-size: 100% 100%;
+background-position: center;
+background-repeat: no-repeat;
+
+}

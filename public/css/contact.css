@@ -1,0 +1,178 @@
+.diagonal-bg {
+    background: linear-gradient(to bottom right, rgb(255, 255, 255) 50%, rgba(104, 117, 245, 0.5) 50%);
+    backdrop-filter: blur(10px); /* اضافه کردن اثر بلور */
+}
+
+.diagonal-bg-2 {
+    background: linear-gradient(to top left, rgb(252, 252, 252) 50%, rgba(104, 117, 245, 0.5) 50%);
+    backdrop-filter: blur(400px); /* اضافه کردن اثر بلور */
+}
+
+.hero {
+    background-image: url('/img/vakilhosh.png');
+}
+
+.btn {
+    position: relative;
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(45deg, #00bcf5, #0a18dd);
+    font-size: 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn:after {
+    content: "";
+    background: rgba(255, 255, 255, 0.5);
+    display: block;
+    position: absolute;
+    padding-top: 300px;
+    padding-left: 350px;
+    margin-left: -20px !important;
+    margin-top: -120px;
+    opacity: 0;
+    transition: all 0.8s;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #0995e6, #0400f5);
+    box-shadow: 0px 0px 5px #07cee9, 0px 0px 15px #5173e0, 0px 0px 20px #0004f5, 0px 0px 30px #007ff5;
+}
+
+.btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
+
+::-webkit-scrollbar {
+    width: 10px; /* عرض اسکرول‌بار */
+}
+
+/* مسیر یا track اسکرول‌بار */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* رنگ پس‌زمینه‌ی مسیر */
+    border-radius: 10px; /* گوشه‌های گرد */
+}
+
+/* دسته یا thumb اسکرول‌بار */
+::-webkit-scrollbar-thumb {
+    background: #4e57d4; /* رنگ دسته */
+    border-radius: 10px; /* گوشه‌های گرد */
+}
+
+/* وقتی ماوس روی دسته اسکرول‌بار قرار می‌گیرد */
+::-webkit-scrollbar-thumb:hover {
+    background: #2f3ce9; /* رنگ دسته در حالت hover */
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(45deg, #01053d, #070f7a, #056ec4, #074fd6, #547cfd);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.hero {
+    /* تعریف شکل هلالی برای عنصر در بالا */
+    clip-path: ellipse(70% 100% at 50% 0%);
+    /* تنظیمات برای تصویر پس‌زمینه */
+    background-image: url(./img/عکس\ وکیل\ هوش.png);
+    height: 300px;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+  }
+
+
+  /* تعریف استایل برای کانتینر اصلی */
+.container {
+    position: relative;
+    width: 40%; /* عرض کانتینر را به 40% از والد (parent) تنظیم می‌کند */
+    height: 80%; /* ارتفاع کانتینر را به 80% از والد تنظیم می‌کند */
+    background-color: rgba(255, 255, 255, 0.13); /* رنگ پس زمینه با شفافیت */
+    text-align: center;
+    backdrop-filter: blur(15px); /* افکت بلور برای پس زمینه */
+    transition: transform 0.3s, box-shadow 0.3s; /* انتقال برای تبدیل و سایه */
+    overflow: hidden; /* محتوای خارج از مرزها نمایش داده نمی‌شود */
+    transform: scale(1); /* مقیاس اولیه بدون تغییر */
+}
+
+/* تعریف انیمیشن‌هایی برای شکل‌های متحرک */
+@keyframes movingShapes {
+    0%, 100% {
+        transform: translateY(0) rotate(20deg); /* شروع و پایان انیمیشن */
+    }
+    50% {
+        transform: translateY(20px) rotate(20deg); /* وضعیت در میانه انیمیشن */
+    }
+}
+
+/* تعریف استایل برای قبل و بعد از کانتینر تعریف دایره های انیمیشسنی  
+.container:before, .container:after {
+    content: "";
+    position: absolute;
+    width: 60px;  عرض 60px 
+    height: 60px; /* ارتفاع 60px */
+    /* bottom: 5%; /* فاصله از پایین */
+    /* left: 5%; /* فاصله از چپ */
+    /* background: linear-gradient(45deg, #01064b, #070f7a, #118aec, #08bfcc, #003cff); /* گرادیانت رنگی */
+    /*?opacity: 1; /* شفافیت کامل */
+    /*border-radius: 50%; /* گرد کردن گوشه‌ها */
+    /*animation: movingShapes 5s infinite; /* اعمال انیمیشن */
+    /*z-index: 4; /* ترتیب نمایش */
+/*}
+
+/* تعریف استایل برای بخش :after کانتینر */
+/*.container:after {
+   /* top: auto; /* برای تعیین موقعیت بالایی */
+   /* bottom: 5%; /* فاصله از پایین */
+    /*right: 5%; /* فاصله از راست */
+    /*left: auto; /* برای تعیین موقعیت چپی */
+    /*animation-delay: 2.5s; /* تاخیر در شروع انیمیشن */
+   /* z-index: 4; /* ترتیب نمایش */
+/*}
+
+/* تعریف استایل برای پس‌زمینه */
+/*.background {
+    width: 600px; /* عرض */
+  /*  height: 600px; /* ارتفاع */
+  /*  position: absolute;
+    transform: translate(-50%, -50%); /* تنظیم موقعیت */
+  /*  left: 10%; /* فاصله از چپ */
+  /*  top: 50%; /* فاصله از بالا */
+   /* opacity: 0.7; /* شفافیت */
+/*}
+
+/* تعریف استایل برای شکل‌ها داخل پس‌زمینه */
+/*.background .shape {
+    height: 400px; /* ارتفاع */
+ /*   width: 400px; /* عرض */
+  /*  position: absolute;
+  /*  border-radius: 20%; /* گرد کردن گوشه‌ها */
+  /*  transition: all 0.3s; /* انتقال برای تمام خصوصیات */
+/*}

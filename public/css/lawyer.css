@@ -1,0 +1,359 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  background: linear-gradient(
+    45deg,
+    #4e57d4,
+    #4550eb,
+    #118aec,
+    #08bfcc,
+    #74f1f1
+  );
+  background-size: 400% 400%;
+  animation: backgroundAnimation 15s ease infinite;
+}
+
+@font-face {
+  font-family: "lazlo";
+  src: url("./public/font/lazlo.woff2") format("woff2");
+  font-family: "lazlo";
+  src: url("../font/lazlo.woff2") format("woff2");
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* عرض اسکرول‌بار */
+}
+
+/* مسیر یا track اسکرول‌بار */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* رنگ پس‌زمینه‌ی مسیر */
+  border-radius: 10px; /* گوشه‌های گرد */
+}
+
+/* دسته یا thumb اسکرول‌بار */
+::-webkit-scrollbar-thumb {
+  background: #4e57d4; /* رنگ دسته */
+  border-radius: 10px; /* گوشه‌های گرد */
+}
+/* وقتی ماوس روی دسته اسکرول‌بار قرار می‌گیرد */
+::-webkit-scrollbar-thumb:hover {
+  background: #2f3ce9; /* رنگ دسته در حالت hover */
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh; /* تغییر از 100 به 100vh */
+}
+
+
+.step {
+  position: relative;
+  background-color: #e0c9a0;
+  width: 120px;
+  height: 120px;
+  padding: 30px;
+  margin: 3px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* بخش بالایی پوشه با نوک مثلثی */
+.step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #d8bf91;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* جیب داخلی پوشه */
+.step::after {
+  content: "";
+  position: absolute;
+  top: 65px;
+  left: 50px;
+  height: 40px;
+  width: 400px;
+  background-color: #d8bf91;
+  clip-path: polygon(0% 10%, 100% 10%, 100% 90%, 0 90%);
+  z-index: 1;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.step .number {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  left: -21px;
+  bottom: -4px;
+  background-color: #70502079;
+  border-radius: 50%;
+  text-align: center;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.step .desc {
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  z-index: 2;
+  font-size: 15px;
+  padding-top: 10px;
+  color: #eeeaea;
+}
+.form-step {
+  display: none;
+}
+
+.form-step.show {
+  display: block;
+}
+.step.completed {
+  background-color: #c1a780;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.2);
+  animation: stepCompletedAnimation 4.5s forwards;
+}
+
+@keyframes stepCompletedAnimation {
+  from {
+    transform: scale(0.9);
+    background-color: #e0c9a0;
+  }
+  to {
+    transform: scale(1);
+    background-color: #c1a780;
+  }
+}
+
+/* افزودن انیمیشن به گیره وسط */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(-15deg);
+  }
+}
+
+.step:hover:before {
+  animation: wiggle 0.6s ease infinite;
+}
+
+/* Base style for the button */
+.btn {
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(45deg, #00bcf5, #0a18dd);
+  font-size: 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* افکت موجی برای دکمه هنگامی که روی آن کلیک می‌شود */
+.btn:after {
+  content: "";
+  background: rgba(255, 255, 255, 0.5);
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #0995e6, #0400f5);
+  box-shadow: 0px 0px 5px #07cee9, 0px 0px 15px #5173e0, 0px 0px 20px #0004f5,
+    0px 0px 30px #007ff5;
+}
+
+.btn:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.container {
+  color: #ffffff;
+}
+.multi-step-form {
+  background-color: #ffffff88;
+  padding: 20px;
+  border-radius: 60px; /* گوشه‌های گرد با شعاع 10 پیکسل */
+  box-shadow: 0 4px 8px rgba(238, 24, 24, 0.274);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* amirreza code */
+small,
+h2,
+strong {
+  color: black;
+}
+
+#maindiv {
+
+  background-color: rgba(255, 255, 255, 0.363);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.7);
+}
+
+#secondarydiv label {
+  color: black;
+}
+
+#secondarydiv {
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.4);
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+
+
+.wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: linear-gradient(45deg, #01064b, #070f7a, #118aec, #08bfcc, #003cff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.box div {
+  position: absolute;
+  width: 30px;
+  height: 39px;
+  background-color: transparent;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  opacity: 0; /* شروع با ناپدید بودن */
+  /* اضافه کردن سبک‌های nth-child در اینجا */
+}
+.box div:nth-child(1){
+  top:12%;
+  left:42%;
+  animation: animate 10s linear infinite;
+}
+.box div:nth-child(2){
+  top:70%;
+  left:50%;
+  animation: animate 7s linear infinite;
+}
+.box div:nth-child(3){
+  top:17%;
+  left:6%;
+  animation: animate 9s linear infinite;
+}
+.box div:nth-child(4){
+  top:20%;
+  left:60%;
+  animation: animate 10s linear infinite;
+}
+.box div:nth-child(5){
+  top:67%;
+  left:10%;
+  animation: animate 6s linear infinite;
+}
+.box div:nth-child(6){
+  top:80%;
+  left:10%;
+  animation: animate 12s linear infinite;
+}
+.box div:nth-child(7){
+  top:60%;
+  left:80%;
+  animation: animate 15s linear infinite;
+}
+.box div:nth-child(8){
+  top:32%;
+  left:25%;
+  animation: animate 16s linear infinite;
+}
+.box div:nth-child(9){
+  top:90%;
+  left:25%;
+  animation: animate 9s linear infinite;
+}
+.box div:nth-child(10){
+  top:20%;
+  left:80%;
+  animation: animate 5s linear infinite;
+}
+@keyframes animate {
+  0% {
+      transform: translateY(100px) scale(0.8); /* شروع از پایین با کوچکتر بودن */
+      opacity: 0; /* شروع با ناپدید بودن */
+  }
+  50% {
+      opacity: 1; /* در نیمه راه کاملاً مرئی */
+  }
+  100% {
+      transform: translateY(-1000px) scale(1.2); /* پایان در بالا با کمی بزرگتر بودن */
+      opacity: 0; /* در پایان ناپدید شدن */
+  }
+}

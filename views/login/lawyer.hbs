@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم وکلا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/lawyer.css">
+</head>
+<body class="text-white">
+    <div class="wrapper">
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+     
+      <div class="container h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-md-6 mx-auto">
+                    <div class="multi-step-form" id="maindiv">
+                        <h2 class="text-center mb-5 animate__animated animate__fadeInDown">فرم ورود وکلا</h2>
+                        <!-- Progress bar -->
+                        <div class="d-flex justify-content-between mb-5" id="steps">
+                            <div class="step active">
+                                <div class="number">1</div>
+                                <div class="desc"><small>نام/خانوادگی</small></div>
+                            </div>
+                            <div class="step">
+                                <div class="number">2</div>
+                                <div class="desc"><small>شماره تماس</small></div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="number">3</div>
+                                <div class="desc d-flex align-items-center justify-content-center" style="right: 20px;"><small>ورود</small></div>
+                            </div>
+                        </div>
+            <!-- Multi step form -->
+                        <div class="multi-step-form" id="secondarydiv">
+                          <form action="#">
+                              <!-- Step 1 -->
+                              <div class="form-step show" id="step-1">
+                                  <div class="mb-3">
+                                      <label class="form-label">نام</label>
+                                      <input type="text" class="form-control">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label class="form-label">نام خانوادگی</label>
+                                      <input type="text" class="form-control">
+                                  </div>
+                                  <button type="button" class="btn btn-primary next-step">بعدی</button>
+                              </div>
+
+                    <!-- Step 2 -->
+                                <div class="form-step" id="step-2">
+                                  <div class="mb-3">
+                                      <label class="form-label">شماره تماس</label>
+                                      <input type="number" class="form-control">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="specialization" class="form-label">تخصص</label>
+                                      <input type="text" class="form-control" id="specialization" name="specialization" placeholder="مثال: حقوق خانواده" required>
+                                  </div>
+
+                                  <div class="mb-3">
+                                      <label for="description" class="form-label">آدرس محل کار (دفتر)</label>
+                                      <textarea class="form-control" id="description" name="description" rows="2"></textarea>
+                                  </div>
+
+                                  <div class="mb-3">
+                                      <label for="photo" class="form-label">عکس پروفایل</label>
+                                      <input type="file" class="form-control" id="photo" name="photo">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="photo" class="form-label"> مدارک وافتخارات</label>
+                                      <input type="file" class="form-control" id="photo" name="photo">
+                                  </div>
+
+                                  <button type="button" class="btn btn-secondary prev-step">قبلی</button>
+                                  <button type="button" class="btn btn-primary next-step">بعدی</button>
+                              </div>
+
+
+                    <!-- Step 3 -->
+                   <!-- Step 3 -->
+                   <div class="form-step" id="step-3">
+                    <div class="mb-3">
+                        <label class="form-label" for="province">استان</label>
+                        <select class=" form-control select2 animate__animated animate__fadeInDown" id="province" name="province">
+                            <option value="" disabled selected>استان را انتخاب کنید</option>
+                            <option value="تهران">تهران</option>
+                            <option value="اصفهان">اصفهان</option>
+                              <option value="تهران">تهران</option>
+                              <option value="اصفهان">اصفهان</option>
+                              <option value="1">آذربايجان شرقي</option>
+                              <option value="2">آذربايجان غربي</option>
+                              <option value="3">اردبيل</option>
+                              <option value="5">البرز</option>
+                              <option value="6">ايلام</option>
+                              <option value="7">بوشهر</option>
+                              <option value="8">تهران</option>
+                              <option value="9">چهارمحال بختياري</option>
+                              <option value="10">خراسان جنوبي</option>
+                              <option value="11">خراسان رضوي</option>
+                              <option value="12">خراسان شمالي</option>
+                              <option value="13">خوزستان</option>
+                              <option value="14">زنجان</option>
+                              <option value="15">سمنان</option>
+                              <option value="16">سيستان و بلوچستان</option>
+                              <option value="17">فارس</option>
+                              <option value="18">قزوين</option>
+                              <option value="19">قم</option>
+                              <option value="20">كردستان</option>
+                              <option value="21">كرمان</option>
+                              <option value="22">كرمانشاه</option>
+                              <option value="23">كهكيلويه و بويراحمد</option>
+                              <option value="24">گلستان</option>
+                              <option value="25">گيلان</option>
+                              <option value="26">لرستان</option>
+                              <option value="27">مازندران</option>
+                              <option value="28">مركزي</option>
+                              <option value="29">هرمزگان</option>
+                              <option value="30">همدان</option>
+                              <option value="31">يزد</option>
+                              <!-- اضافه کردن سایر استان‌ها... -->
+                           </select>
+                        </div>
+                        <div class="mb-3">
+                           <label class="form-label" for="city">شهر</label>
+                           <select class="form-control" id="city" name="city" disabled>
+                              <option value="">ابتدا استان را انتخاب کنید</option>
+                              <!-- شهرها به صورت دینامیک اضافه می‌شوند -->
+                           </select>
+                        </div>
+                        <label for="city" class="form-label">
+                          <span class="cu-num-form">6</span> زمینه تخصصی
+                      </label>
+                      <div class="col-sm-6 mb-2 form-lawadd">
+                        <div class="form-check mb-2">
+                            <input type="radio" id="spec" name="spec" class="form-check-input" value="1" required>
+                            <label class="form-check-label" for="spec">خانواده</label>
+                            <div dir="RTL" style="text-align:right">
+                                <span style="font-size:14px">نامزدی و خسارات ناشی از بر هم زدن آن-مهریه حجر و رفع آن-اهدای جنین و</span>
+                            </div>
+                        </div>
+                    </div>
+
+                      
+
+                      <div class="col-sm-6 mb-2 form-lawadd">
+                        <div class="form-check mb-2">
+                            <input type="radio" id="spec_malki" name="spec" class="form-check-input" value="2" required>
+                            <label class="form-check-label" for="spec_malki">ملکی</label>
+                            <div dir="rtl">
+                                <span style="font-size:14px">دعوی تخلیه، دعوی خلع ید، ...</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 mb-2 form-lawadd">
+                        <div class="form-check mb-2">
+                            <input type="radio" id="spec_hoghooghi" name="spec" class="form-check-input" value="3" required>
+                            <label class="form-check-label" for="spec_hoghooghi">حقوقی</label>
+                            <div dir="rtl">
+                                <span style="font-size:14px">عملیات اجرائی، الزام به ایفاء تعهد، ...</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 mb-2 form-lawadd">
+                        <div class="form-check mb-2">
+                            <input type="radio" id="spec_kefri" name="spec" class="form-check-input" value="4" required>
+                            <label class="form-check-label" for="spec_kefri">کیفری</label>
+                            <div dir="rtl">
+                                <span style="font-size:14px">تصادفات، ربا، سرقت، ...</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-sm-6 mb-2 form-lawadd">
+                      <div class="form-check mb-2">
+                          <input type="radio" id="spec_tejari" name="spec" class="form-check-input" value="6" required>
+                          <label class="form-check-label" for="spec_tejari">تجاری</label>
+                          <div dir="RTL">
+                              <span style="font-size:14px">اثبات شراکت ،ثبت شرکت... و دیگر موارد تجاری.</span>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-6 mb-2 form-lawadd">
+                      <div class="form-check mb-2">
+                          <input type="radio" id="spec_divan" name="spec" class="form-check-input" value="7" required>
+                          <label class="form-check-label" for="spec_divan">دیوان عدالت-شهرداری</label>
+                          <div dir="RTL">
+                              <span style="font-size:14px">استرداد مبالغ دریافتی حق بیمه... و دیگر موارد مرتبط با دیوان عدالت و شهرداری.</span>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-6 mb-2 form-lawadd">
+                      <div class="form-check mb-2">
+                          <input type="radio" id="spec_sabti" name="spec" class="form-check-input" value="8" required>
+                          <label class="form-check-label" for="spec_sabti">ثبتی</label>
+                          <div dir="RTL">
+                              <span style="font-size:14px">دعاوی ثبتی، دعاوی مرتبط با ثبت املاک... و دیگر موارد ثبتی.</span>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-6 mb-2 form-lawadd">
+                      <div class="form-check mb-2">
+                          <input type="radio" id="spec_gomroki" name="spec" class="form-check-input" value="10" required>
+                          <label class="form-check-label" for="spec_gomroki">گمرکی</label>
+                        
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-6 mb-2 form-lawadd">
+                      <div class="form-check mb-2">
+                          <input type="radio" id="spec_maliyati" name="spec" class="form-check-input" value="11" required>
+                          <label class="form-check-label" for="spec_maliyati">امور مالیاتی</label>
+                        
+                      </div>
+                  </div>
+                  
+
+                  <div class="col-sm-6 mb-2 form-lawadd">
+                    <div class="form-check mb-2">
+                        <input type="radio" id="spec_internet_crimes" name="spec" class="form-check-input" value="13" required>
+                        <label class="form-check-label" for="spec_internet_crimes">جرایم اینترنتی</label>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 mb-2 form-lawadd">
+                    <div class="form-check mb-2">
+                        <input type="radio" id="spec_migration" name="spec" class="form-check-input" value="14" required>
+                        <label class="form-check-label" for="spec_migration">مهاجرت</label>
+                    </div>
+                </div>
+                <div class="border-bottom p-2 mb-4"></div>
+                <div class="border-bottom p-2 mb-4"></div>
+
+                <div class="row g-3">
+                    <div class="col-sm-6 mb-2 form-lawadd">
+                        <label class="form-label" for="dateparv"><span class="cu-num-form">7</span> تاریخ صدور پروانه</label>
+                        <input type="text" name="dateparv" id="dateparv" class="form-control" placeholder="مثال : 01-01-1401">
+                    </div>
+                    
+                    <div class="col-sm-6 mb-2 form-lawadd">
+                        <label class="form-label" for="dateexpparv"><span class="cu-num-form">8</span> تاریخ انقضاء پروانه</label>
+                        <input type="text" name="dateexpparv" id="fdateexpparv" class="form-control" placeholder="مثال : 01-01-1401">
+                    </div>
+                    
+                    <div class="col-sm-6 mb-2 form-lawadd">
+                        <label class="form-label" for="numpar"><span class="cu-num-form">9</span> شماره پروانه</label>
+                        <input type="text" name="numpar" id="numpar" class="form-control" inputmode="numeric" pattern="[0-9]*">
+                    </div>
+                    
+                    <div class="col-sm-6 form-lawadd mt-4">
+                        <label class="form-label" for="tedadparv"><span class="cu-num-form">10</span> وکالت تعداد پرونده(در بازه زمانی یک سال)</label>
+                        <input type="text" name="tedadparv" id="tedadparv" class="form-control">
+                    </div>
+                    
+                    <div class="col-sm-6 form-lawadd mt-4">
+                        <label class="form-label" for="okparv"><span class="cu-num-form">11</span> موفقیت تعدادپرونده(در بازه زمانی یک سال)</label>
+                        <input type="text" name="okparv" id="okparv" class="form-control">
+                    </div>
+                
+                    <div class="col-sm-6 form-lawadd mt-4">
+                        <div class="form-check form-switch">
+                            <input type="checkbox" role="switch" name="ch3" value="1" class="form-check-input">
+                            <label class="switch switch-primary"><span class="switch-label">سابقه تدریس در دانشگاه را دارم</span></label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 form-lawadd mt-4">
+                        <div class="form-check form-switch">
+                            <input type="checkbox" role="switch" name="ch4" value="1" class="form-check-input">
+                            <label class="switch switch-primary"><span class="switch-label p-2">سابقه وکالت و مشاوره در ارگان های دولتی و یا شرکت های خصوصی را داشته ام</span></label>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <button type="button" class="btn btn-secondary prev-step">قبلی</button>
+                <button type="button" class="btn btn-primary next-step">بعدی</button>
+                
+
+                 
+            
+                </form>
+               </div>
+          </div>
+    </div>
+</div>
+   </div>
+</div>
+</body>
+<body>   
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.11/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+
+    
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const steps = document.querySelectorAll(".form-step");
+    const nextBtns = document.querySelectorAll(".next-step");
+    const prevBtns = document.querySelectorAll(".prev-step");
+    const progressSteps = document.querySelectorAll(".step");
+
+    nextBtns.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            steps[index].classList.remove("show");
+            steps[index + 1].classList.add("show");
+            progressSteps[index].classList.remove("active");
+            progressSteps[index].classList.add("completed"); // اضافه کردن کلاس completed
+            progressSteps[index + 1].classList.add("active");
+        });
+    });
+
+    prevBtns.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            steps[index + 1].classList.remove("show");
+            steps[index].classList.add("show");
+            progressSteps[index + 1].classList.remove("active");
+            progressSteps[index + 1].classList.remove("completed"); // حذف کردن کلاس completed
+            progressSteps[index].classList.add("active");
+        });
+    });
+
+
+    const provinceToCities = {
+        'تهران': ['تهران', 'وحیدیه', 'ری', 'شمیران', '...'],
+        'اصفهان': ['اصفهان', 'کاشان', 'نجف‌آباد', '...'],
+        'مازندران': ['ساری', 'بابل', 'آمل', '...']
+        // اضافه کردن سایر استان‌ها و شهرها...
+    };
+
+    const provinceSelect = document.getElementById('province');
+    const citySelect = document.getElementById('city');
+
+    provinceSelect.addEventListener('change', function() {
+        const selectedProvince = this.value;
+        const cities = provinceToCities[selectedProvince];
+
+        citySelect.innerHTML = ''; // پاک کردن شهرهای قبلی
+        citySelect.disabled = false;
+
+        for (const city of cities) {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+        }
+    });
+});
+  $(document).ready(function() {
+      $('.select2').select2({
+          theme: 'bootstrap4', // یکی از تم‌های موجود در Select2
+          dropdownCssClass: 'animate__animated animate__fadeInDown' // انیمیشن ورودی
+      });
+  });
+  
+  
+
+  
+</script>
+
+</body>
+</html>
