@@ -1,0 +1,1 @@
+export type queryParameter = { page?: number, order?: 'asc' | 'desc', sort?: string, items?: string }

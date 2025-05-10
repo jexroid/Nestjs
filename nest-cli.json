@@ -6,18 +6,15 @@
     "assets": [
       {
         "include": "../public",
-        "outDir": "dist/public",
-        "watchAssets": true
-      },
-      {
-        "include": "../views",
-        "outDir": "dist/views",
-        "watchAssets": true
+        "outDir": "dist/public"
       },
       {
         "include": "../uploads",
-        "outDir": "dist/uploads",
-        "watchAssets": true
+        "outDir": "dist/uploads"
+      },
+      {
+        "include": "../middleware",
+        "outDir": "dist/middleware"
       }
     ],
     "watchAssets": true,

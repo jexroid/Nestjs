@@ -1,37 +1,30 @@
 import { Module, ValidationPipe } from "@nestjs/common";
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
-import { ClientModule } from "./client/client.module";
 import { APP_PIPE } from "@nestjs/core";
-import { LawyerModule } from './lawyer/lawyer.module';
-import { RegisterController } from './register.controller';
-import { LoginController } from './login/login.controller';
-import { LoginService } from './login/login.service';
-import { AuthModule } from './auth/auth.module';
-import { SmsService } from './auth/sms.service';
-import { JwtStrategy } from "./client/auth/strategies/jwt.strategie";
-import { ApiModule } from './api/api.module';
-import { PrismaService } from './prisma.service';
+import { ConfigModule } from "@nestjs/config";
+import { ThrottlerModule } from "@nestjs/throttler";
 
+import { AppController } from "./app.controller";
+import { V1Module } from "./v1/v1.module";
 
 @Module({
   imports: [
-    ClientModule,
-    LawyerModule,
-    AuthModule,
-    ApiModule,
+    ThrottlerModule.forRoot({
+      throttlers: [
+        {
+          ttl: 60000,
+          limit: 60,
+        },
+      ],
+    }),
+    ConfigModule.forRoot({ isGlobal: true }),
+    V1Module,
   ],
-  controllers: [AppController, LoginController, RegisterController],
+  controllers: [AppController],
   providers: [
-    AppService,
-    JwtStrategy,
     {
       provide: APP_PIPE,
       useClass: ValidationPipe,
     },
-    LoginService,
-    SmsService,
-    PrismaService,
   ],
 })
 export class AppModule {}

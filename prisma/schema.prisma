@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,28 +8,105 @@ datasource db {
 }
 
 model users {
-  id        Int      @id @default(autoincrement())
-  email     String?  @unique 
-  uuid      Int      @unique
-  password  String   
-  created   DateTime @default(now())
-  firstname String   
-  lastname  String   
-  phone     String   @unique 
-  city      String?  
-  province  String?  
-  profile   String?  @default("uploads/profileimages/unkown.svg")
-  token     Int      @default(2000)
+  id         BigInt @id(map: "idx_41349_primary") @default(autoincrement())
+  role       BigInt
+  username   String
+  password   String
+  urlprofile String
 }
 
-model lawyer {
-  id        Int      @id @default(autoincrement())
-  firstname String
-  lastname  String
-  email     String?
-  phone     String   @unique 
-  password  String   @db.Text
-  verify    Boolean  @default(false)
-  rank      Int      @default(0)
-  job_area  String[]
+model customers {
+  id        BigInt     @id(map: "idx_41304_primary") @default(autoincrement())
+  username  String
+  sex       String
+  phone     String     @unique(map: "unique_phone") @db.VarChar(25)
+  address   String
+  trnnumber String
+  email     String
+  invoices  invoices[]
 }
+
+model invoices {
+  id          BigInt    @id(map: "idx_41311_primary") @default(autoincrement())
+  datepaid    DateTime  @db.Date
+  workshop    String
+  username    String
+  sex         String
+  phone       String
+  address     String
+  trnnumber   String
+  usevat      Boolean
+  paid        Boolean
+  delivered   Boolean
+  discount    BigInt
+  taxDiscount Boolean
+  deliveredby String
+  submittedby String
+  pdf         String?   @db.VarChar(40)
+  timestamp   DateTime? @db.Timestamptz(6)
+  customers   customers @relation(fields: [phone], references: [phone], onDelete: SetNull, onUpdate: NoAction, map: "fk_invoices_customer")
+  items       items[]
+}
+
+model items {
+  id          BigInt   @id(map: "idx_41318_primary") @default(autoincrement())
+  invoiceid   BigInt
+  name        String
+  price       String
+  quantity    String
+  description String
+  invoices    invoices @relation(fields: [invoiceid], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "fk_items_invoice")
+}
+
+model log {
+  id          BigInt   @id(map: "idx_41325_primary") @default(autoincrement())
+  department  String
+  submittedby String
+  date        DateTime @db.Timestamptz(6)
+  os          String
+  browser     String
+  ip          String
+  value1      String
+  value2      String
+  value3      String
+  value4      String
+  value5      String
+  value6      String
+  value7      String
+  value8      String
+  value9      String
+  value10     String
+}
+
+model otherinvoices {
+  id          BigInt   @id(map: "idx_41332_primary") @default(autoincrement())
+  date        DateTime @db.Date
+  drivername  String
+  urlinvoice  String
+  disable     String
+  submittedby String
+}
+
+model otheritems {
+  id          BigInt @id(map: "idx_41339_primary") @default(autoincrement())
+  invoiceid   BigInt
+  name        String
+  price       String
+  quantity    String
+  description String
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model settings {
+  warningdaysinvoice BigInt
+  dangerdaysinvoice  BigInt
+  numpageinvoices    BigInt
+  numpagecustomer    BigInt
+  numpagelogs        BigInt
+
+  @@ignore
+}
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model taxes {
+// }
