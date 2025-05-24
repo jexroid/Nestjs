@@ -5,6 +5,9 @@ import { ThrottlerModule } from "@nestjs/throttler";
 
 import { AppController } from "./app.controller";
 import { V1Module } from "./v1/v1.module";
+import { AuthModule } from "@/auth/auth.module";
+import { DrizzleService } from "@/lib/database/database.service";
+// import { V1Module } from "./v1/v1.module";
 
 @Module({
   imports: [
@@ -18,9 +21,11 @@ import { V1Module } from "./v1/v1.module";
     }),
     ConfigModule.forRoot({ isGlobal: true }),
     V1Module,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [
+    DrizzleService,
     {
       provide: APP_PIPE,
       useClass: ValidationPipe,
