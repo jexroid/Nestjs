@@ -1,10 +1,11 @@
 import { Module, ValidationPipe } from "@nestjs/common";
-import { APP_PIPE } from "@nestjs/core";
 import { ConfigModule } from "@nestjs/config";
+import { APP_PIPE } from "@nestjs/core";
 import { ThrottlerModule } from "@nestjs/throttler";
 
 import { AppController } from "./app.controller";
-import { V1Module } from "./v1/v1.module";
+
+import { DrizzleService } from "$lib/database/database.service";
 
 @Module({
   imports: [
@@ -12,15 +13,15 @@ import { V1Module } from "./v1/v1.module";
       throttlers: [
         {
           ttl: 60000,
-          limit: 60,
+          limit: 200,
         },
       ],
     }),
     ConfigModule.forRoot({ isGlobal: true }),
-    V1Module,
   ],
   controllers: [AppController],
   providers: [
+    DrizzleService,
     {
       provide: APP_PIPE,
       useClass: ValidationPipe,

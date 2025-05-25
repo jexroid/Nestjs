@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+import path from "node:path";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -6,102 +8,115 @@ import parserTs from "@typescript-eslint/parser";
 import pluginSecurity from "eslint-plugin-security";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import importPlugin from "eslint-plugin-import";
-import { fileURLToPath } from "node:url";
-import path from "node:path";
+import prettierConfig from "eslint-config-prettier";
 
-// Derive __dirname equivalent for ES modules
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig([
-  // Global settings
   {
-    files: ["**/*.{js,mjs,cjs,ts}"], // Apply to all JS/TS files
-    ignores: [".eslintrc.js"], // Ignore specific files
+    files: ["**/*.{js,mjs,cjs,ts}"],
+    ignores: ["**/dist/**", ".eslintrc.js"],
   },
 
-  // Language options and rules
   {
     files: ["**/*.{js,mjs,cjs,ts}"],
     languageOptions: {
       globals: {
-        ...globals.node, // Node.js globals
-        ...globals.jest, // Jest globals
+        ...globals.node,
+        ...globals.jest,
       },
-      parser: parserTs, // Use TypeScript parser
+      parser: parserTs,
       parserOptions: {
-        project: "tsconfig.json", // Specify the TS config file
-        tsconfigRootDir: __dirname, // Root directory for TS config
-        sourceType: "module", // Use ES modules
+        project: "tsconfig.json",
+        tsconfigRootDir: __dirname,
+        sourceType: "module",
+        ecmaFeatures: {
+          jsx: false,
+        },
       },
     },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+      "@stylistic/ts": stylisticTs,
+      security: pluginSecurity,
+      unicorn: eslintPluginUnicorn,
+      import: importPlugin,
+    },
     rules: {
-      // Stylistic rules
-      "@stylistic/ts/indent": ["error", 2],
+      "@stylistic/ts/indent": ["warn", 2],
+      "@stylistic/ts/quotes": ["warn", "single", { avoidEscape: true }],
+      "@stylistic/ts/semi": ["warn", "always"],
+      "@stylistic/ts/comma-dangle": ["warn", "always-multiline"],
+      "@stylistic/ts/object-curly-spacing": ["warn", "always"],
+      "@stylistic/ts/space-before-blocks": "warn",
+      "@stylistic/ts/keyword-spacing": "warn",
+      "@stylistic/ts/space-infix-ops": "warn",
+      "@stylistic/ts/type-annotation-spacing": "warn",
 
-      // TypeScript rules
-      "@typescript-eslint/interface-name-prefix": "off",
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unused-vars": "warn",
-
-      // Unicorn rules
-      "unicorn/filename-case": [
-        "error",
-        {
-          case: "kebabCase",
-        },
-      ],
-      "unicorn/prefer-node-protocol": "warn",
-
-      "import/no-unresolved": ["off", { commonjs: false, amd: false }],
       "import/order": [
         "warn",
         {
-          groups: [
-            "type",
+          "groups": [
             "builtin",
-            "object",
             "external",
             "internal",
             "parent",
             "sibling",
             "index",
+            "object",
+            "type"
           ],
-          pathGroups: [
+          "pathGroups": [
             {
-              pattern: "~/**",
-              group: "external",
-              position: "after",
+              "pattern": "@/**",
+              "group": "internal",
+              "position": "after"
             },
+            {
+              "pattern": "~/**",
+              "group": "internal"
+            }
           ],
+          "pathGroupsExcludedImportTypes": ["builtin"],
           "newlines-between": "always",
-        },
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          }
+        }
       ],
-    },
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error",
+
+      "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/consistent-type-exports": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+      ],
+
+      "unicorn/filename-case": [
+        "error",
+        {
+          "case": "kebabCase",
+          "ignore": ["\\.d\\.ts$"] 
+        }
+      ],
+      "unicorn/prefer-node-protocol": "error",
+      "unicorn/prefer-module": "off",
+      "unicorn/no-array-reduce": "off",
+
+      "security/detect-object-injection": "off" 
+    }
   },
 
-  // Plugins and extensions
+  prettierConfig,
   {
-    files: ["**/*.{js,mjs,cjs,ts}"],
-    plugins: {
-      "@typescript-eslint": tseslint.plugin, // TypeScript plugin
-      "@stylistic/ts": stylisticTs, // Stylistic plugin
-      security: pluginSecurity, // Security plugin
-      unicorn: eslintPluginUnicorn, // Unicorn plugin
-      import: importPlugin,
-    },
-  },
-
-  // Add recommended configs from typescript-eslint
-  tseslint.configs.recommended,
-
-  // Add security recommended configs
-  {
-    files: ["**/*.{js,mjs,cjs,ts}"],
-    plugins: {
-      security: pluginSecurity,
-    },
-    rules: pluginSecurity.configs.recommended.rules,
-  },
+    rules: {
+      "@stylistic/ts/indent": "off",
+      "@stylistic/ts/quotes": "off",
+      "@stylistic/ts/semi": "off",
+      "@stylistic/ts/comma-dangle": "off"
+    }
+  }
 ]);

@@ -1,0 +1,592 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "karami.invoices": {
+      "name": "invoices",
+      "schema": "karami",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "datepaid": {
+          "name": "datepaid",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "workshop": {
+          "name": "workshop",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sex": {
+          "name": "sex",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phone": {
+          "name": "phone",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "address": {
+          "name": "address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "trnnumber": {
+          "name": "trnnumber",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usevat": {
+          "name": "usevat",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "paid": {
+          "name": "paid",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "delivered": {
+          "name": "delivered",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "discount": {
+          "name": "discount",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "taxDiscount": {
+          "name": "taxDiscount",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deliveredby": {
+          "name": "deliveredby",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "submittedby": {
+          "name": "submittedby",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pdf": {
+          "name": "pdf",
+          "type": "varchar(40)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timestamp": {
+          "name": "timestamp",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fk_invoices_customer": {
+          "name": "fk_invoices_customer",
+          "tableFrom": "invoices",
+          "tableTo": "customers",
+          "schemaTo": "karami",
+          "columnsFrom": [
+            "phone"
+          ],
+          "columnsTo": [
+            "phone"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {},
+      "policies": {},
+      "isRLSEnabled": false
+    },
+    "karami.log": {
+      "name": "log",
+      "schema": "karami",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "department": {
+          "name": "department",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "submittedby": {
+          "name": "submittedby",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "date": {
+          "name": "date",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "os": {
+          "name": "os",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "browser": {
+          "name": "browser",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ip": {
+          "name": "ip",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value1": {
+          "name": "value1",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value2": {
+          "name": "value2",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value3": {
+          "name": "value3",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value4": {
+          "name": "value4",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value5": {
+          "name": "value5",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value6": {
+          "name": "value6",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value7": {
+          "name": "value7",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value8": {
+          "name": "value8",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value9": {
+          "name": "value9",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value10": {
+          "name": "value10",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {},
+      "policies": {},
+      "isRLSEnabled": false
+    },
+    "karami.otherinvoices": {
+      "name": "otherinvoices",
+      "schema": "karami",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "date": {
+          "name": "date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "drivername": {
+          "name": "drivername",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "urlinvoice": {
+          "name": "urlinvoice",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "disable": {
+          "name": "disable",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "submittedby": {
+          "name": "submittedby",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {},
+      "policies": {},
+      "isRLSEnabled": false
+    },
+    "karami.otheritems": {
+      "name": "otheritems",
+      "schema": "karami",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "invoiceid": {
+          "name": "invoiceid",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price": {
+          "name": "price",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {},
+      "policies": {},
+      "isRLSEnabled": false
+    },
+    "karami.settings": {
+      "name": "settings",
+      "schema": "karami",
+      "columns": {
+        "warningdaysinvoice": {
+          "name": "warningdaysinvoice",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dangerdaysinvoice": {
+          "name": "dangerdaysinvoice",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "numpageinvoices": {
+          "name": "numpageinvoices",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "numpagecustomer": {
+          "name": "numpagecustomer",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "numpagelogs": {
+          "name": "numpagelogs",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {},
+      "policies": {},
+      "isRLSEnabled": false
+    },
+    "karami.users": {
+      "name": "users",
+      "schema": "karami",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "urlprofile": {
+          "name": "urlprofile",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {},
+      "policies": {},
+      "isRLSEnabled": false
+    },
+    "karami.items": {
+      "name": "items",
+      "schema": "karami",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "invoiceid": {
+          "name": "invoiceid",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price": {
+          "name": "price",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fk_items_invoice": {
+          "name": "fk_items_invoice",
+          "tableFrom": "items",
+          "tableTo": "invoices",
+          "schemaTo": "karami",
+          "columnsFrom": [
+            "invoiceid"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {},
+      "policies": {},
+      "isRLSEnabled": false
+    },
+    "karami.customers": {
+      "name": "customers",
+      "schema": "karami",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sex": {
+          "name": "sex",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phone": {
+          "name": "phone",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "address": {
+          "name": "address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "trnnumber": {
+          "name": "trnnumber",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "unique_phone": {
+          "columns": [
+            "phone"
+          ],
+          "nullsNotDistinct": false,
+          "name": "unique_phone"
+        }
+      },
+      "checkConstraints": {},
+      "policies": {},
+      "isRLSEnabled": false
+    },
+    "karami.taxes": {
+      "name": "taxes",
+      "schema": "karami",
+      "columns": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {},
+      "policies": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {
+    "karami": "karami"
+  },
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {}
+  }
+}
